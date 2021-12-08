@@ -19,7 +19,10 @@ internal class SearchPresenter internal constructor(
     private val repository: GitHubRepository
 ) : PresenterSearchContract, GitHubRepositoryCallback {
 
-    private var currentRepo:GitHubRepository? = null
+    private var currentRepo: GitHubRepository? = null
+
+    val testRepoStatus: GitHubRepository?
+        get() = currentRepo
 
     override fun searchGitHub(searchQuery: String) {
         viewContract.displayLoading(true)
@@ -33,6 +36,7 @@ internal class SearchPresenter internal constructor(
     override fun onDetach() {
         currentRepo = null
     }
+
     override fun handleGitHubResponse(response: Response<SearchResponse?>?) {
         viewContract.displayLoading(false)
         if (response != null && response.isSuccessful) {
