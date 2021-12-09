@@ -9,6 +9,7 @@ import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.krayapp.seatchtests.view.search.MainActivity
 import org.hamcrest.Matcher
 import org.junit.*
 import org.junit.runner.*
@@ -29,9 +30,19 @@ class MainActivityEspressoTest {
         onView(withId(R.id.searchEditText)).perform(replaceText("algol"), closeSoftKeyboard())
         onView(withId(R.id.searchEditText)).perform(pressImeActionButton())
         onView(isRoot()).perform(delay())
-
         onView(withId(R.id.totalCountTextView)).check(matches(withText("Number of results: 2701")))
     }
+
+    @Test
+    fun counterTextViewStartsInvisible(){
+        onView(withId(R.id.totalCountTextView)).check(matches(withEffectiveVisibility(Visibility.INVISIBLE)))
+    }
+
+    @Test
+    fun checkButtonText(){
+        onView(withId(R.id.toDetailsActivityButton)).check(matches(withText("to details")))
+    }
+
     @After
     fun close() {
         scenario.close()
