@@ -58,6 +58,9 @@ plugins {
             exclude group: 'org.jetbrains.kotlin'
             exclude group: 'org.mockito'
         }
+        //Espresso
+        androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
         //Robolectric
         testImplementation 'org.robolectric:robolectric:4.5.1'
         testImplementation 'androidx.test:core:1.3.0'
