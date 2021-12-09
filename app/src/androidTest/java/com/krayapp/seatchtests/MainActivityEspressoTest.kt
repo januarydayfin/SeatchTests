@@ -9,7 +9,6 @@ import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.krayapp.seatchtests.view.search.MainActivity
 import org.hamcrest.Matcher
 import org.junit.*
 import org.junit.runner.*
