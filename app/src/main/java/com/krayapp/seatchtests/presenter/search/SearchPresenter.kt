@@ -19,18 +19,24 @@ internal class SearchPresenter internal constructor(
     private val repository: GitHubRepository
 ) : PresenterSearchContract, GitHubRepositoryCallback {
 
+    private var currentRepo: GitHubRepository? = null
+
+    val testRepoStatus: GitHubRepository?
+        get() = currentRepo
+
     override fun searchGitHub(searchQuery: String) {
         viewContract.displayLoading(true)
         repository.searchGithub(searchQuery, this)
     }
 
     override fun onAttach() {
-        TODO("Not yet implemented")
+        currentRepo = this.repository
     }
 
     override fun onDetach() {
-        TODO("Not yet implemented")
+        currentRepo = null
     }
+
     override fun handleGitHubResponse(response: Response<SearchResponse?>?) {
         viewContract.displayLoading(false)
         if (response != null && response.isSuccessful) {

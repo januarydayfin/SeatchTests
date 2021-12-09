@@ -149,4 +149,16 @@ class SearchPresenterTest {
         //Убеждаемся, что ответ от сервера обрабатывается корректно
         verify(viewContract, times(1)).displaySearchResults(searchResults, 101)
     }
+
+    @Test
+    fun onAttachTest(){
+        presenter.onAttach()
+        assertNotNull(presenter.testRepoStatus)
+    }
+
+    @Test
+    fun onDetachTest(){
+        presenter.onDetach()
+        assertNull(presenter.testRepoStatus)
+    }
 }
