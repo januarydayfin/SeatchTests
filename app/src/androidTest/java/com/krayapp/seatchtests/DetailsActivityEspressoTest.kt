@@ -37,7 +37,7 @@ class DetailsActivityEspressoTest {
     @Test
     fun activityTextView_NotNull() {
         scenario.onActivity {
-            val totalCountTextView = it.findViewById<TextView>(R.id.totalCountTextView)
+            val totalCountTextView = it.findViewById<TextView>(R.id.detailTotalCountTextView)
             TestCase.assertNotNull(totalCountTextView)
         }
     }
@@ -45,19 +45,19 @@ class DetailsActivityEspressoTest {
     @Test
     fun activityTextView_HasText() {
         val assertion: ViewAssertion = matches(withText("Number of results: 0"))
-        onView(withId(R.id.totalCountTextView)).check(assertion)
+        onView(withId(R.id.detailTotalCountTextView)).check(assertion)
     }
     @Test
 
     fun activityButtonIncrement_IsWorking() {
         onView(withId(R.id.incrementButton)).perform(click())
-        onView(withId(R.id.totalCountTextView)).check(matches(withText("Number of results: 1")))
+        onView(withId(R.id.detailTotalCountTextView)).check(matches(withText("Number of results: 1")))
     }
 
     @Test
     fun activityButtonDecrement_IsWorking() {
         onView(withId(R.id.decrementButton)).perform(click())
-        onView(withId(R.id.totalCountTextView)).check(matches(withText("Number of results: -1")))
+        onView(withId(R.id.detailTotalCountTextView)).check(matches(withText("Number of results: -1")))
     }
     @Test
     fun activityButtons_AreEffectiveVisible() {
@@ -67,12 +67,12 @@ class DetailsActivityEspressoTest {
 
     @Test
     fun activityTextView_IsDisplayed() {
-        onView(withId(R.id.totalCountTextView)).check(matches(isDisplayed()))
+        onView(withId(R.id.detailTotalCountTextView)).check(matches(isDisplayed()))
     }
 
     @Test
     fun activityTextView_IsCompletelyDisplayed() {
-        onView(withId(R.id.totalCountTextView)).check(matches(isCompletelyDisplayed()))
+        onView(withId(R.id.detailTotalCountTextView)).check(matches(isCompletelyDisplayed()))
     }
     @After
     fun close() {
