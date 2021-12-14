@@ -51,13 +51,13 @@ class DetailsActivityEspressoTest {
 
     fun activityButtonIncrement_IsWorking() {
         onView(withId(R.id.incrementButton)).perform(click())
-        onView(withId(R.id.detailTotalCountTextView)).check(matches(withText("Number of results: 1")))
+        onView(withId(R.id.detailTotalCountTextView)).check(matches(withText(NUMBER_PLUS_1)))
     }
 
     @Test
     fun activityButtonDecrement_IsWorking() {
         onView(withId(R.id.decrementButton)).perform(click())
-        onView(withId(R.id.detailTotalCountTextView)).check(matches(withText("Number of results: -1")))
+        onView(withId(R.id.detailTotalCountTextView)).check(matches(withText(NUMBER_MINUS_1)))
     }
     @Test
     fun activityButtons_AreEffectiveVisible() {
