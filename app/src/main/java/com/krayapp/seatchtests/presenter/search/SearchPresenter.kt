@@ -3,6 +3,8 @@ package com.krayapp.seatchtests.presenter.search
 import com.krayapp.seatchtests.model.SearchResponse
 import com.krayapp.seatchtests.repository.GitHubRepository
 import com.krayapp.seatchtests.repository.GitHubRepository.GitHubRepositoryCallback
+import com.krayapp.seatchtests.repository.RepositoryCallback
+import com.krayapp.seatchtests.repository.RepositoryContract
 import com.krayapp.seatchtests.view.search.ViewSearchContract
 import retrofit2.Response
 
@@ -16,12 +18,12 @@ import retrofit2.Response
 
 internal class SearchPresenter internal constructor(
     private val viewContract: ViewSearchContract,
-    private val repository: GitHubRepository
-) : PresenterSearchContract, GitHubRepositoryCallback {
+    private val repository: RepositoryContract
+) : PresenterSearchContract, RepositoryCallback {
 
-    private var currentRepo: GitHubRepository? = null
+    private var currentRepo: RepositoryContract? = null
 
-    val testRepoStatus: GitHubRepository?
+    val testRepoStatus: RepositoryContract?
         get() = currentRepo
 
     override fun searchGitHub(searchQuery: String) {

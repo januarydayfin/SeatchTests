@@ -6,8 +6,7 @@ import com.krayapp.seatchtests.view.ViewContract
 internal interface ViewSearchContract : ViewContract {
     fun displaySearchResults(
         searchResults: List<SearchResult>,
-        totalCount: Int
-    )
+        totalCount: Int)
 
     fun displayError()
     fun displayError(error: String)
