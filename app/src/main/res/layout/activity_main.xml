@@ -40,10 +40,10 @@
         android:id="@+id/toDetailsActivityButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
         android:text="@string/to_details"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/totalCountTextView" />
 
     <TextView
         android:id="@+id/totalCountTextView"
@@ -61,7 +61,6 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/totalCountTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/toDetailsActivityButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

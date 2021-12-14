@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), ViewSearchContract {
         toDetailsActivityButton.setOnClickListener {
             startActivity(DetailsActivity.getIntent(this, totalCount))
         }
-        setSearchButtonListener()
+        setQueryListener()
         setRecyclerView()
     }
 
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), ViewSearchContract {
     }
 
 
-    private fun setSearchButtonListener() {
+    private fun setQueryListener() {
        goSearchButton.setOnClickListener{
            val query = searchEditText.text.toString()
            if (query.isNotBlank()) {
