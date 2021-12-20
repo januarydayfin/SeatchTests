@@ -5,12 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
+        android:name=".SeatchTestsApp"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SeatchTests">
+        android:theme="@style/Theme.SeatchTests"
+        android:fullBackupContent="true">
         <activity android:name=".view.search.MainActivity"
             android:exported="true">
             <intent-filter>
