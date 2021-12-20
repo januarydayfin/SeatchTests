@@ -10,6 +10,7 @@ object ApiModule {
     fun getFromApi():GitHubApi{
         return Retrofit.Builder()
             .baseUrl(MainActivity.BASE_URL)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(GitHubApi::class.java)

@@ -16,6 +16,6 @@ object Koin {
         single<GitHubApi> {ApiModule.getFromApi()}
         single<RepositoryContract>{ GitHubRepository(get()) }
         single<SchedulerProvider> { SearchSchedulerProvider() }
-        viewModel {SearchViewModel(repository = get(), appSchedulerProvider = get())}
+        viewModel {SearchViewModel(repository = get())}
     }
 }
