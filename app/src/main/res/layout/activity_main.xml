@@ -28,12 +28,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/toDetailsActivityButton"
+        android:id="@+id/goSearchButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
+        tools:layout_editor_absoluteX="16dp"
+        android:text="@string/let_s_go_seatch"
+        app:layout_constraintTop_toBottomOf="@id/searchEditText"/>
+
+    <Button
+        android:id="@+id/toDetailsActivityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/to_details"
-        app:layout_constraintTop_toBottomOf="@id/searchEditText" />
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalCountTextView" />
 
     <TextView
         android:id="@+id/totalCountTextView"
@@ -44,14 +54,13 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toDetailsActivityButton"
+        app:layout_constraintTop_toBottomOf="@+id/goSearchButton"
         tools:text="Number of results: 100" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/totalCountTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/toDetailsActivityButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
