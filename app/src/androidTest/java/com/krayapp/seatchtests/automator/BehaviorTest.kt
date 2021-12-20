@@ -57,16 +57,13 @@ class BehaviorTest {
     //Убеждаемся, что поиск работает как ожидается
     @Test
     fun test_SearchIsPositive() {
-        //Через uiDevice находим editText
         val editText = uiDevice.findObject(By.res(packageName, "searchEditText"))
         val goSearchButton = uiDevice.findObject(By.res(packageName, "goSearchButton"))
-        //Устанавливаем значение
         editText.text = "UiAutomator"
 
 
         goSearchButton.click()
-        //Ожидаем конкретного события: появления текстового поля totalCountTextView.
-        //Это будет означать, что сервер вернул ответ с какими-то данными, то есть запрос отработал.
+
         val changedText =
             uiDevice.wait(
                 Until.findObject(By.res(packageName, "totalCountTextView")),
@@ -85,7 +82,6 @@ class BehaviorTest {
         var inDetailsNumber = ""
         editText.text = "UiAutomator"
         goSearchButton.click()
-
         val changedText = uiDevice.wait(
             Until.findObject(By.res(packageName,"totalCountTextView")),
             TIMEOUT
@@ -105,23 +101,13 @@ class BehaviorTest {
 
     @Test
     fun test_OpenDetailsScreen() {
-        //Находим кнопку
         val toDetails = uiDevice.findObject(By.res(packageName, "toDetailsActivityButton"))
-        //Кликаем по ней
         toDetails.click()
-
-        //Ожидаем конкретного события: появления текстового поля totalCountTextView.
-        //Это будет означать, что DetailsScreen открылся и это поле видно на экране.
         val changedText =
             uiDevice.wait(
                 Until.findObject(By.res(packageName, "detailTotalCountTextView")),
                 TIMEOUT
             )
-        //Убеждаемся, что поле видно и содержит предполагаемый текст.
-        //Обратите внимание, что текст должен быть "Number of results: 0",
-        //так как мы кликаем по кнопке не отправляя никаких поисковых запросов.
-        //Чтобы проверить отображение определенного количества репозиториев,
-        //вам в одном и том же методе нужно отправить запрос на сервер и открыть DetailsScreen.
         assertEquals(changedText.text, "Number of results: 0")
     }
 

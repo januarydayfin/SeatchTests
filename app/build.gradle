@@ -8,7 +8,6 @@ plugins {
     compileSdk 30
     buildToolsVersion "30.0.2"
 
-
     defaultConfig {
       applicationId "com.krayapp.seatchtests"
       minSdk 23
@@ -29,6 +28,15 @@ plugins {
            versionNameSuffix '.real'
        }
     }
+     sourceSets {
+           androidTest {
+               java.srcDirs += "src/sharedTestData/java"
+           }
+           test {
+               java.srcDirs += "src/sharedTestData/java"
+           }
+        }
+
      buildTypes {
             release {
                 minifyEnabled false
