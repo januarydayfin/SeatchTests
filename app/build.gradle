@@ -58,6 +58,10 @@ plugins {
     }
 
     dependencies {
+        //RecyclerView
+        debugImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
+        //Fragment
+        debugImplementation 'androidx.fragment:fragment-testing:1.3.3'
 
         //UI Automator
         androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
